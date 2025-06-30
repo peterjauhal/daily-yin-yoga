@@ -7,7 +7,7 @@ name: Generate Daily Yin Yoga Routine
     workflow_dispatch: # Allow manual triggering
 
   permissions:
-    contents: write  # Changed from 'read' to 'write'
+    contents: write
     pages: write
     id-token: write
 
@@ -39,7 +39,6 @@ name: Generate Daily Yin Yoga Routine
         - name: Generate daily routine
           run: npm run generate
 
-        # MOVED: Commit and push changes BEFORE deployment
         - name: Commit and push changes
           run: |
             git config --local user.email "action@github.com"
@@ -66,3 +65,4 @@ name: Generate Daily Yin Yoga Routine
         - name: Deploy to GitHub Pages
           id: deployment
           uses: actions/deploy-pages@v4
+
